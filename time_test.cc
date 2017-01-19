@@ -19,23 +19,24 @@ TEST_CASE ("Default constructor")
 {
     Time t;
 
-    CHECK(t.hour() == 0);
-    CHECK(t.minute() == 0);
-    CHECK(t.second() == 0);
+    CHECK(t.get_hour() == 0);
+    CHECK(t.get_minute() == 0);
+    CHECK(t.get_second() == 0);
 }
 
 // the following line will halt the compilation process. Move it
 // one test case at the time and then start creating your own test
 // cases
-#if 0
+
+
 TEST_CASE ( "Constructor with numeric arguments" )
 {
     Time t{12,13,14};
-    CHECK(t.hour() == 12);
-    CHECK(t.minute() == 13);
-    CHECK(t.second() == 14);
+    CHECK(t.get_hour() == 12);
+    CHECK(t.get_minute() == 13);
+    CHECK(t.get_second() == 14);
 }
-
+#if 0
 TEST_CASE ("Constructor with faulty argument")
 {
     CHECK_THROWS( Time{41,0,0} );
@@ -96,5 +97,6 @@ TEST_CASE ("Output operator" )
         CHECK(ss.str() == "23:23:23");
     }
 }
+
 #endif
 
