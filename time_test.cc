@@ -1,5 +1,11 @@
+#include <string>
+#include <iostream>
+#include <sstream>
+
 #include "catch.hpp"
 #include "Time.h"
+
+using namespace std;
 
 // här lägger ni era testfall. 
 // Jobba enligt TDD; 
@@ -32,9 +38,9 @@ TEST_CASE ( "Constructor with numeric arguments" )
 
 TEST_CASE ("Constructor with faulty argument")
 {
-    CHECK_THROWS( (Time{41,0,0}) );
-    CHECK_THROWS( (Time{0,99,0}) );
-    CHECK_THROWS( (Time{0,0,99}) );
+    CHECK_THROWS( Time{41,0,0} );
+    CHECK_THROWS( Time{0,99,0} );
+    CHECK_THROWS( Time{0,0,99} );
 }
 
 TEST_CASE ("String constructor")
@@ -46,7 +52,7 @@ TEST_CASE ("String constructor")
 
     SECTION ("Throws as well")
     {
-        CHECK_THROWS( (Time{"02:11:74"}) );
+        CHECK_THROWS( Time{"02:11:74"} );
     }
 }
 
@@ -60,9 +66,9 @@ TEST_CASE ("am or pm")
 
 TEST_CASE ("Convert to string" )
 {
-    CHECK( (Time{12,12,12}.to_string()) == "12:12:12" );
-    CHECK( (Time{12,1,2}.to_string()) ==   "12:01:02" );
-    CHECK( (Time{14,33,12}.to_string(true)) == "02:33:12 pm");
+    CHECK( Time{12,12,12}.to_string()     ==    "12:12:12" );
+    CHECK( Time{12, 1, 2}.to_string()     ==    "12:01:02" );
+    CHECK( Time{14,33,12}.to_string(true) == "02:33:12 pm" );
 }
 
 TEST_CASE ("Conversion to string" )
@@ -91,5 +97,4 @@ TEST_CASE ("Output operator" )
     }
 }
 #endif
-
 
