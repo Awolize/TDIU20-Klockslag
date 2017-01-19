@@ -36,20 +36,20 @@ TEST_CASE ( "Constructor with numeric arguments" )
     CHECK(t.get_minute() == 13);
     CHECK(t.get_second() == 14);
 }
-#if 0
+
 TEST_CASE ("Constructor with faulty argument")
 {
     CHECK_THROWS( Time{41,0,0} );
     CHECK_THROWS( Time{0,99,0} );
     CHECK_THROWS( Time{0,0,99} );
 }
-
+#if 0
 TEST_CASE ("String constructor")
 {
     Time t{"12:23:12"};
-    CHECK(t.hour() == 12);
-    CHECK(t.minute() == 23);
-    CHECK(t.second() == 12);
+    CHECK(t.get_hour() == 12);
+    CHECK(t.get_minute() == 23);
+    CHECK(t.get_second() == 12);
 
     SECTION ("Throws as well")
     {
