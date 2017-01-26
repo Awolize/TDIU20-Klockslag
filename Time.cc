@@ -1,54 +1,85 @@
-// I denna fil läggs definitionerna (implementationen) av de funktioner
-// som deklarerats i Time.h
+#include "Time.h"
 #include <iostream>
 #include <sstream>
 #include "catch.hpp"
-#include "Time.h"
+#include <stdexcept>
 
 using namespace std;
 
-Time::Time(int hour, int minute, int second, bool if_am) :hour{hour}, minute{minute}, second{second}, if_am{false} {
-    if ( hour > 23 || hour < 0 || minute > 59 || minute < 0 || second > 59 || second < 0) {
-	Throw Invalid_Exception("Invalid Input");
-    }
-												      }
+// I denna fil läggs definitionerna (implementationen) av de funktioner
+// som deklarerats i Time.h
+void Time::Check_Value(int hour, int minute, int second){
+ if (hour > 23 || hour < 0 || minute > 59 || minute < 0 || second > 59 || second < 0) {
+	throw invalid_argument("Invalid Input");
+    } 
+}
+ 
 
-Time::Time(int hour, int minute, int second) :hour{hour}, minute{minute}, second{second}, if_am{false} {   
-    if ( hour > 23 || hour < 0 || minute > 59 || minute < 0 || second > 59 || second < 0) {
-	Throw Invalid_Exception("Invalid Input");
-    }
-											  }
+Time::Time(int hour, int minute, int second):hour{hour}, minute{minute}, second{second} {
+    Check_Value(hour, minute, second);
+}
 
-Time::Time() :hour{0}, minute{0}, second{0}, if_am{false} {}
+Time::Time(std::string time_str) {
+    stringstream ss{""};
+    int h{0},m{0},s{0};   
+    char ch;
+    ss << time_str;
+    ss >> h;
+    ss.ignore();
+    ss >> m;
+    ss.ignore();
+    ss >> s;
+    Check_Value(h,m,s);
+    hour = h;
+    minute = m;
+    second = s;
+}
+
+Time::Time()
+    :hour{0}, minute{0}, second{0} {};
 
 string Time::to_string(bool if_am) {
     stringstream ss;
-    ss << hour << ":" << minute << ":" << second;
-
+    if(if_am) 
+	hour -= 12;
+   
+    if (hour < 10) {
+	ss << '0';
+    }
+    ss << hour << ":";
+    if (minute < 10) {
+	ss << '0';
+    }
+    ss << minute  << ":";
+    if (second < 10) {
+	ss << '0';
+    }
+    ss  << second;
+    
     if (if_am){
 	if (is_am())
-	    ss << " am";
-	else 
 	    ss << " pm";
     }
+    cout << ss.str();
     string return_string = ss.str();
     return return_string;
 }
 
 int Time::get_hour() const {return hour;}
-int Time::get_minute() const { return minute;}
+int Time::get_minute() const {return minute;}
 int Time::get_second() const {return second;}
 
 bool Time::is_am() {
-    if (hour < 13) {
+    if (hour < 12) {
 	if_am = true;
 	return true;
     }
     else { 
-	if_am = true;
+	if_am = false;
 	return false;	
     }
 }
 
-    
-    
+Time::operator std::string() {
+    return "rhs.to_string(false)";    
+}

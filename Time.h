@@ -4,22 +4,23 @@
 #define TIME_H_
 
 #include <iostream>
-
+using std::string;
 
 class Time
 {
 public:
-    //std::string get_time();
-    //void set_time(int & hour,int & minute,int & second);
     bool is_am();
     std::string to_string(bool if_am);
+    Time(int hour, int minute, int second);
     Time();
-    Time(int hour,int minute,int second);
-    Time(int hour,int minute,int second, bool if_am);
+    Time(string time_str);
     int get_hour() const;
     int get_minute() const;
     int get_second() const;
+    void Check_Value(int hour, int minute, int second);
+    operator std::string() const;
 private:
+    string time_str;
     bool if_am;
     int hour;
     int minute;
