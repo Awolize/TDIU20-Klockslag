@@ -18,7 +18,8 @@ public:
     int get_minute() const;
     int get_second() const;
     void Check_Value(int hour, int minute, int second);
-    operator std::string() const;
+    operator string(); 
+    Time operator+ (Time);
 private:
     string time_str;
     bool if_am;

@@ -79,7 +79,13 @@ bool Time::is_am() {
 	return false;	
     }
 }
-
+Time::operator string() {return to_string(false);}
+/*
 Time::operator std::string() {
     return "rhs.to_string(false)";    
+}
+*/
+
+Time Time::operator+ (Time rhs) {
+    return Time{0,0,0};
 }
