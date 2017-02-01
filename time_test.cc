@@ -76,7 +76,7 @@ TEST_CASE ("Conversion to string" )
 {
     CHECK(( string(Time{2,4,1}) == "02:04:01" ));
 }
-#if 0
+
 TEST_CASE ("Output operator" )
 {
     stringstream ss;
@@ -98,5 +98,16 @@ TEST_CASE ("Output operator" )
     }
 }
 
+TEST_CASE ("add" )
+{
+    Time t{0,0,0};
+    t + 4;
+    CHECK(t.get_hour() == 0);
+    CHECK(t.get_minute() == 0);
+    CHECK(t.get_second() == 4);
+    CHECK((t>Time{1,2,2} == false));
+    //cout << Time{23,59,55};
+    }
+#if 0
 #endif
 

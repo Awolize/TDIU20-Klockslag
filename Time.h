@@ -19,7 +19,20 @@ public:
     int get_second() const;
     void Check_Value(int hour, int minute, int second);
     operator string(); 
-    Time operator+ (Time);
+    friend Time operator+ (Time, int);
+    friend Time operator- (Time, int);
+    Time operator++();
+    Time operator--();
+    Time operator++(int);
+    Time operator--(int);
+    friend bool operator<(Time,Time);
+    friend bool operator>(Time,Time);
+    friend bool operator<=(Time,Time);
+    friend bool operator>=(Time,Time);
+    friend bool operator==(Time,Time);
+    friend bool operator!=(Time,Time);
+    friend std::ostream& operator<<(std::ostream&, Time);
+    void time_Check();
 private:
     string time_str;
     bool if_am;
@@ -28,4 +41,14 @@ private:
     int second;
 };
 
+std::ostream& operator<<(std::ostream& os, Time t);
+Time operator+ (Time,int);
+Time operator- (Time, int);
+bool operator<(Time,Time);
+bool operator>(Time,Time);
+bool operator<=(Time,Time);
+bool operator>=(Time,Time);
+bool operator==(Time,Time);
+bool operator!=(Time,Time);
+		      
 #endif

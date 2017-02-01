@@ -60,7 +60,7 @@ string Time::to_string(bool if_am) {
 	if (is_am())
 	    ss << " pm";
     }
-    cout << ss.str();
+
     string return_string = ss.str();
     return return_string;
 }
@@ -80,12 +80,98 @@ bool Time::is_am() {
     }
 }
 Time::operator string() {return to_string(false);}
-/*
-Time::operator std::string() {
-    return "rhs.to_string(false)";    
-}
-*/
 
-Time Time::operator+ (Time rhs) {
-    return Time{0,0,0};
+
+std::ostream& operator<<(std::ostream& os, Time t) {
+    return os << t.to_string(false);
 }
+Time operator- (Time lhs, int rhs) {
+    rhs = -rhs;
+    operator+(lhs,rhs);
+}
+Time operator+ (Time lhs, int rhs) {
+    for (int i; i >= rhs; i++) {
+	lhs++;
+    } 
+    return Time{lhs.hour,lhs.minute,lhs.second};
+}
+Time Time::operator++() {
+    *this.second + 1;
+    time_Check();
+    return *this;
+}
+Time Time::operator--() {
+    *this.second - 1;
+    time_Check();
+    return *this;
+}
+Time Time::operator++(int) {
+    *this + ;
+    time_Check();
+    return *this;
+}
+Time Time::operator--(int) {
+    *this.second - 1;
+    time_Check();
+    return *this;
+}
+
+
+void Time::time_Check() {
+    while(hour > 23 || hour < 0 || minute > 59 || minute < 0 || second > 59 || second < 0) {
+	if (second > 59) {
+	    second -= 60;
+	    minute++;
+	}
+	if(minute > 59) {
+	    minute -= 60;
+	    hour++;
+	}
+	if(hour > 23) {
+	    hour -= 24;
+	}
+	if(hour < 0) {
+	    hour += 24;
+	}
+	if(minute < 0) {
+	    minute += 60;
+	    hour--;
+	}
+	if (second < 0) {
+	    second += 60;
+	    minute--;
+	}
+	
+    }
+}
+
+bool operator<(Time lhs,Time rhs){
+    if (lhs.hour < rhs.hour)
+	return true;
+    else if (lhs.hour == rhs.hour && lhs.minute < rhs.minute) 
+	return true;
+    else if(lhs.hour == rhs.hour && lhs.minute == rhs.minute && lhs.second < rhs.second)
+	return true;
+    return false;
+}
+
+bool operator>(Time lhs,Time rhs){
+    return rhs<lhs;
+}
+
+bool operator<=(Time lhs,Time rhs){
+    return !(rhs<lhs);
+}
+
+bool operator>=(Time lhs,Time rhs){
+    return !(lhs<rhs);
+}
+
+bool operator==(Time lhs,Time rhs){
+    return !(rhs<lhs || lhs<rhs);
+}
+
+bool operator!=(Time lhs,Time rhs){
+    return rhs<lhs || lhs<rhs;
+}
+
