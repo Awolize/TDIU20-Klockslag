@@ -24,10 +24,6 @@ TEST_CASE ("Default constructor")
     CHECK(t.get_second() == 0);
 }
 
-// the following line will halt the compilation process. Move it
-// one test case at the time and then start creating your own test
-// cases
-
 
 TEST_CASE ( "Constructor with numeric arguments" )
 {
@@ -98,16 +94,89 @@ TEST_CASE ("Output operator" )
     }
 }
 
-TEST_CASE ("add" )
+
+
+TEST_CASE ("Add" )
 {
-    Time t{0,0,0};
-    t + 4;
+    Time t2{0,0,0};
+    Time t{t2+64};
+
     CHECK(t.get_hour() == 0);
-    CHECK(t.get_minute() == 0);
+    CHECK(t.get_minute() == 1);
     CHECK(t.get_second() == 4);
-    CHECK((t>Time{1,2,2} == false));
-    //cout << Time{23,59,55};
-    }
-#if 0
-#endif
+    
+}
+TEST_CASE ("increment" )
+{
+    Time t2{0,0,0};
+    Time t3{++t2};
+    Time t4{t2++};
+
+    CHECK(t2.get_hour() == 0);
+    CHECK(t2.get_minute() == 0);
+    CHECK(t2.get_second() == 2);
+
+    CHECK(t3.get_hour() == 0);
+    CHECK(t3.get_minute() == 0);
+    CHECK(t3.get_second() == 1);
+
+    CHECK(t4.get_hour() == 0);
+    CHECK(t4.get_minute() == 0);
+    CHECK(t4.get_second() == 1);
+    
+    
+}
+TEST_CASE ("decrement" )
+{
+    Time t2{0,0,4};
+    Time t3{--t2};
+    Time t4{t2--};
+
+    CHECK(t2.get_hour() == 0);
+    CHECK(t2.get_minute() == 0);
+    CHECK(t2.get_second() == 2);
+
+    CHECK(t3.get_hour() == 0);
+    CHECK(t3.get_minute() == 0);
+    CHECK(t3.get_second() == 3);
+
+    CHECK(t4.get_hour() == 0);
+    CHECK(t4.get_minute() == 0);
+    CHECK(t4.get_second() == 3);
+    
+}
+TEST_CASE ("Sub" )
+{
+   Time t2{0,1,5};
+   Time t{t2-64};
+
+   CHECK(t.get_hour() == 0);
+   CHECK(t.get_minute() == 0);
+   CHECK(t.get_second() == 1);
+}
+
+TEST_CASE ("More/less" )
+{
+    Time t{2,1,1};
+    CHECK((t>Time{1,2,2}));
+    CHECK_FALSE((t<Time{1,2,2}));
+    CHECK((t>=Time{1,2,2}));
+    CHECK_FALSE((t<=Time{1,2,2}));
+    CHECK_FALSE((t==Time{1,2,2}));
+    CHECK((t!=Time{1,2,2}));
+}
+
+TEST_CASE ("Operator")
+{
+    Time t1{23,10,57}, t2;
+    stringstream ss;
+    ss << t1; 
+    ss >> t2;
+    CHECK(ss.fail() == false);
+    CHECK(string(t1) == "23:10:57");
+
+    ss << "25:01:01";
+    ss >> t1;
+    CHECK(ss.fail());
+}
 

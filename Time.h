@@ -17,38 +17,31 @@ public:
     int get_hour() const;
     int get_minute() const;
     int get_second() const;
-    void Check_Value(int hour, int minute, int second);
     operator string(); 
-    friend Time operator+ (Time, int);
-    friend Time operator- (Time, int);
-    Time operator++();
-    Time operator--();
+    Time operator+(int);
+    Time operator- (int);
+    Time& operator++();
+    Time& operator--();
     Time operator++(int);
     Time operator--(int);
-    friend bool operator<(Time,Time);
-    friend bool operator>(Time,Time);
-    friend bool operator<=(Time,Time);
-    friend bool operator>=(Time,Time);
-    friend bool operator==(Time,Time);
-    friend bool operator!=(Time,Time);
+    bool operator<(const  Time &) const;
+    bool operator>(const  Time &) const;
+    bool operator<=(const  Time &) const;
+    bool operator>=(const  Time &) const;
+    bool operator==(const  Time &) const;
+    bool operator!=(const  Time &) const;
     friend std::ostream& operator<<(std::ostream&, Time);
-    void time_Check();
+    friend std::istream& operator>>(std::istream&, Time);
+    
 private:
-    string time_str;
-    bool if_am;
+    Time time_Check(Time);
+    void Check_Value(int hour, int minute, int second);
     int hour;
     int minute;
     int second;
+    bool if_am;
 };
 
 std::ostream& operator<<(std::ostream& os, Time t);
-Time operator+ (Time,int);
-Time operator- (Time, int);
-bool operator<(Time,Time);
-bool operator>(Time,Time);
-bool operator<=(Time,Time);
-bool operator>=(Time,Time);
-bool operator==(Time,Time);
-bool operator!=(Time,Time);
-		      
+std::istream& operator>>(std::istream& is, Time t);		      
 #endif

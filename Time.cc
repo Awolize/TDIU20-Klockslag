@@ -6,23 +6,20 @@
 
 using namespace std;
 
-// I denna fil läggs definitionerna (implementationen) av de funktioner
-// som deklarerats i Time.h
 void Time::Check_Value(int hour, int minute, int second){
- if (hour > 23 || hour < 0 || minute > 59 || minute < 0 || second > 59 || second < 0) {
+    if (hour > 23 || hour < 0 || minute > 59 || minute < 0 || second > 59 || second < 0) {
 	throw invalid_argument("Invalid Input");
     } 
 }
- 
 
-Time::Time(int hour, int minute, int second):hour{hour}, minute{minute}, second{second} {
+Time::Time(int hour, int minute, int second):hour{hour}, minute{minute}, second{second}, if_am{false} {
     Check_Value(hour, minute, second);
-}
+											 }
 
-Time::Time(std::string time_str) {
+Time::Time(std::string time_str):hour{hour}, minute{minute}, second{second}, if_am{false} {
     stringstream ss{""};
     int h{0},m{0},s{0};   
-    char ch;
+    char ch{' '};
     ss << time_str;
     ss >> h;
     ss.ignore();
@@ -36,7 +33,7 @@ Time::Time(std::string time_str) {
 }
 
 Time::Time()
-    :hour{0}, minute{0}, second{0} {};
+    :hour{0}, minute{0}, second{0}, if_am{false} {}
 
 string Time::to_string(bool if_am) {
     stringstream ss;
@@ -81,97 +78,133 @@ bool Time::is_am() {
 }
 Time::operator string() {return to_string(false);}
 
-
-std::ostream& operator<<(std::ostream& os, Time t) {
-    return os << t.to_string(false);
-}
-Time operator- (Time lhs, int rhs) {
+Time Time::operator-(int rhs) {
     rhs = -rhs;
-    operator+(lhs,rhs);
+    return operator+(rhs);
 }
-Time operator+ (Time lhs, int rhs) {
-    for (int i; i >= rhs; i++) {
-	lhs++;
-    } 
-    return Time{lhs.hour,lhs.minute,lhs.second};
+Time Time::operator+(int rhs) {
+    Time t{hour, minute, second};
+    t.second += rhs;
+    return time_Check(t);
 }
-Time Time::operator++() {
-    *this.second + 1;
-    time_Check();
+Time& Time::operator++() {
+    second++;
+    if (second > 59) {
+	second -= 60;
+	minute++;
+    }
+    if(minute > 59) {
+	minute -= 60;
+	hour++;
+    }
+    if(hour > 23) {
+	hour -= 24;
+    }	
     return *this;
 }
-Time Time::operator--() {
-    *this.second - 1;
-    time_Check();
+Time& Time::operator--() {
+    second--;
+    if(hour < 0) {
+	hour += 24;
+    }
+    if(minute < 0) {
+	minute += 60;
+	hour--;
+    }
+    if (second < 0) {
+	second += 60;
+	minute--;
+    }
     return *this;
 }
 Time Time::operator++(int) {
-    *this + ;
-    time_Check();
-    return *this;
+    Time t{hour,minute,second};
+    second++;
+    time_Check(*this);
+    return t;
 }
 Time Time::operator--(int) {
-    *this.second - 1;
-    time_Check();
-    return *this;
+    Time t{hour,minute,second};
+    second--;
+    time_Check(*this);
+    return t;
 }
 
 
-void Time::time_Check() {
-    while(hour > 23 || hour < 0 || minute > 59 || minute < 0 || second > 59 || second < 0) {
-	if (second > 59) {
-	    second -= 60;
-	    minute++;
+Time Time::time_Check(Time rhs) {
+    while(rhs.hour > 23 || rhs.hour < 0 || rhs.minute > 59
+	  || rhs.minute < 0 || rhs.second > 59 || rhs.second < 0) {
+	if (rhs.second > 59) {
+	    rhs.second -= 60;
+	    rhs.minute++;
 	}
-	if(minute > 59) {
-	    minute -= 60;
-	    hour++;
+	if(rhs.minute > 59) {
+	    rhs.minute -= 60;
+	    rhs.hour++;
 	}
-	if(hour > 23) {
-	    hour -= 24;
+	if(rhs.hour > 23) {
+	    rhs.hour -= 24;
 	}
-	if(hour < 0) {
-	    hour += 24;
+	if(rhs.hour < 0) {
+	    rhs.hour += 24;
 	}
-	if(minute < 0) {
-	    minute += 60;
-	    hour--;
+	if(rhs.minute < 0) {
+	    rhs.minute += 60;
+	    rhs.hour--;
 	}
-	if (second < 0) {
-	    second += 60;
-	    minute--;
+	if (rhs.second < 0) {
+	    rhs.second += 60;
+	    rhs.minute--;
 	}
 	
     }
+    return rhs;
 }
 
-bool operator<(Time lhs,Time rhs){
-    if (lhs.hour < rhs.hour)
+bool Time::operator<(const Time & rhs) const{
+    if (hour < rhs.hour)
 	return true;
-    else if (lhs.hour == rhs.hour && lhs.minute < rhs.minute) 
+    else if (hour == rhs.hour && minute < rhs.minute) 
 	return true;
-    else if(lhs.hour == rhs.hour && lhs.minute == rhs.minute && lhs.second < rhs.second)
+    else if(hour == rhs.hour && minute == rhs.minute && second < rhs.second)
 	return true;
     return false;
 }
 
-bool operator>(Time lhs,Time rhs){
-    return rhs<lhs;
+bool Time::operator>(const Time & rhs) const{
+    return rhs<*this;
 }
 
-bool operator<=(Time lhs,Time rhs){
-    return !(rhs<lhs);
+bool Time::operator<=(const Time & rhs) const{
+    return !(rhs<*this);
 }
 
-bool operator>=(Time lhs,Time rhs){
-    return !(lhs<rhs);
+bool Time::operator>=(const Time & rhs) const{
+    return !(*this<rhs);
 }
 
-bool operator==(Time lhs,Time rhs){
-    return !(rhs<lhs || lhs<rhs);
+bool Time::operator==(const Time & rhs) const {
+    return !(rhs<*this || *this<rhs);
 }
 
-bool operator!=(Time lhs,Time rhs){
-    return rhs<lhs || lhs<rhs;
+bool Time::operator!=(const Time & rhs) const {
+    return rhs<*this || *this<rhs;
 }
+
+std::ostream& operator<<(std::ostream& os, Time t) {
+    os << t.to_string(false);
+    return os;
+}
+
+std::istream& operator>>(std::istream& is,Time t) {
+    
+    char c{':'};
+    is >> t.hour >> c >> t.minute >> c >> t.second;
+    if (t.hour > 23 || t.hour < 0 || t.minute > 59 || t.minute < 0 || t.second > 59 || t.second < 0) {
+	is.setstate(ios::failbit);
+    }
+    return is;
+}
+
+
 
