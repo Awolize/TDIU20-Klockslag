@@ -1,5 +1,5 @@
-// Denna fil ska innehålla deklarationer för de typer och funktioner
-// som behövs
+///1-7
+///se bifogad testfil för kompileringsfel och misslyckade testfall
 #ifndef TIME_H_
 #define TIME_H_
 
@@ -10,14 +10,15 @@ class Time
 {
 public:
     bool is_am();
-    std::string to_string(bool if_am);
+    ///la till defaultvärde för att testprogrammet inte skulle misslyckas på allting
+    std::string to_string(bool if_am = false);
     Time(int hour, int minute, int second);
     Time();
-    Time(string time_str);
+    Time(string time_str); ///5-4, 6-10
     int get_hour() const;
     int get_minute() const;
     int get_second() const;
-    operator string(); 
+    operator string();  ///6-10
     Time operator+(int);
     Time operator- (int);
     Time& operator++();
@@ -39,7 +40,7 @@ private:
     int hour;
     int minute;
     int second;
-    bool if_am;
+    bool if_am; ///behövs inte, räkna ut när det behövs för att slippa hålla uppdaterad
 };
 
 std::ostream& operator<<(std::ostream& os, Time t);

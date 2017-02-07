@@ -4,19 +4,21 @@
 #include "catch.hpp"
 #include <stdexcept>
 
+///1-7, var konsekvent med tomma rader mellan funktioner
+
 using namespace std;
 
 void Time::Check_Value(int hour, int minute, int second){
-    if (hour > 23 || hour < 0 || minute > 59 || minute < 0 || second > 59 || second < 0) {
+    if (hour > 23 || hour < 0 || minute > 59 || minute < 0 || second > 59 || second < 0) { ///1-4
 	throw invalid_argument("Invalid Input");
     } 
 }
 
-Time::Time(int hour, int minute, int second):hour{hour}, minute{minute}, second{second}, if_am{false} {
+Time::Time(int hour, int minute, int second):hour{hour}, minute{minute}, second{second}, if_am{false} { ///1-4
     Check_Value(hour, minute, second);
-											 }
+											 } ///1-3
 
-Time::Time(std::string time_str):hour{hour}, minute{minute}, second{second}, if_am{false} {
+Time::Time(std::string time_str):hour{hour}, minute{minute}, second{second}, if_am{false} { ///1-4
     stringstream ss{""};
     int h{0},m{0},s{0};   
     char ch{' '};
@@ -58,6 +60,7 @@ string Time::to_string(bool if_am) {
 	    ss << " pm";
     }
 
+    ///returnera ss.str() direkt
     string return_string = ss.str();
     return return_string;
 }
