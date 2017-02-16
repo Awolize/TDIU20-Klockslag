@@ -23,8 +23,6 @@ TEST_CASE ("Default constructor")
     CHECK(t.get_minute() == 0);
     CHECK(t.get_second() == 0);
 }
-
-
 TEST_CASE ( "Constructor with numeric arguments" )
 {
     Time t{12,13,14};
@@ -32,7 +30,6 @@ TEST_CASE ( "Constructor with numeric arguments" )
     CHECK(t.get_minute() == 13);
     CHECK(t.get_second() == 14);
 }
-
 TEST_CASE ("Constructor with faulty argument")
 {
     CHECK_THROWS(( Time{41,0,0} ));
@@ -51,8 +48,6 @@ TEST_CASE ("String constructor")
         CHECK_THROWS(( Time{"02:11:74"} ));
     }
 }
-
-
 TEST_CASE ("am or pm")
 {
     Time t{12,12,31};
@@ -60,14 +55,12 @@ TEST_CASE ("am or pm")
     Time t2{1,2,3};
     CHECK(t2.is_am());
 }
-
 TEST_CASE ("Convert to string" )
 {
     CHECK(( Time{12,12,12}.to_string(false)     ==    "12:12:12" ));
     CHECK(( Time{12, 1, 2}.to_string(false)     ==    "12:01:02" ));
     CHECK(( Time{14,33,12}.to_string(true)      ==    "02:33:12 pm" ));
 }
-
 TEST_CASE ("Conversion to string" )
 {
     CHECK(( string(Time{2,4,1}) == "02:04:01" ));
@@ -93,9 +86,6 @@ TEST_CASE ("Output operator" )
         CHECK(ss.str() == "23:23:23");
     }
 }
-
-
-
 TEST_CASE ("Add" )
 {
     Time t2{0,0,0};
@@ -154,7 +144,6 @@ TEST_CASE ("Sub" )
    CHECK(t.get_minute() == 0);
    CHECK(t.get_second() == 1);
 }
-
 TEST_CASE ("More/less" )
 {
     Time t{2,1,1};
@@ -165,7 +154,6 @@ TEST_CASE ("More/less" )
     CHECK_FALSE((t==Time{1,2,2}));
     CHECK((t!=Time{1,2,2}));
 }
-
 TEST_CASE ("Operator")
 {
     Time t1{23,10,57}, t2;
@@ -179,4 +167,24 @@ TEST_CASE ("Operator")
     ss >> t1;
     CHECK(ss.fail());
 }
+TEST_CASE ("test")
+{
+    Time t{10,20,30};
+    CHECK(t.to_string() == "10:20:30");
+}
+TEST_CASE ("test1")
+{
+    Time t{3,3,3};
+    CHECK(t.to_string(true) == "03:03:03 am");
+}
+TEST_CASE ("test2")
+{
+    Time t{3,3,3};
+    CHECK(string(t) == "03:03:03");
+}
 
+TEST_CASE ("test3")
+{
+    Time t_am{3,3,3};
+    CHECK(t_am.is_am());
+}

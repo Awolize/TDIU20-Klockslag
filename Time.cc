@@ -3,22 +3,24 @@
 #include <sstream>
 #include "catch.hpp"
 #include <stdexcept>
-
-///1-7, var konsekvent med tomma rader mellan funktioner
-
 using namespace std;
 
-void Time::Check_Value(int hour, int minute, int second){
-    if (hour > 23 || hour < 0 || minute > 59 || minute < 0 || second > 59 || second < 0) { ///1-4
+void Time::Check_Value(int hour, int minute, int second)
+{
+    if (hour > 23 || hour < 0 || minute > 59 ||
+	minute < 0 || second > 59 || second < 0) 
+    { ///1-4 FIXED
 	throw invalid_argument("Invalid Input");
     } 
 }
-
-Time::Time(int hour, int minute, int second):hour{hour}, minute{minute}, second{second}, if_am{false} { ///1-4
+Time::Time(int hour, int minute, int second)
+    :hour{hour}, minute{minute}, second{second}
+{ ///1-4 FIXED
     Check_Value(hour, minute, second);
-											 } ///1-3
-
-Time::Time(std::string time_str):hour{hour}, minute{minute}, second{second}, if_am{false} { ///1-4
+} ///1-3 FIXED
+Time::Time(const std::string & time_str) 
+    :hour{0}, minute{0}, second{0}
+{ ///1-4 FIXED
     stringstream ss{""};
     int h{0},m{0},s{0};   
     char ch{' '};
@@ -33,138 +35,201 @@ Time::Time(std::string time_str):hour{hour}, minute{minute}, second{second}, if_
     minute = m;
     second = s;
 }
-
+Time::Time(int)
+    :hour{0}, minute{0}, second{0}
+{
+    throw invalid_argument("Invalid Input");
+}
+Time::Time(int, int) 
+    :hour{0}, minute{0}, second{0}
+{
+    throw invalid_argument("Invalid Input");
+}
 Time::Time()
-    :hour{0}, minute{0}, second{0}, if_am{false} {}
+    :hour{0}, minute{0}, second{0} {}
 
-string Time::to_string(bool if_am) {
+string Time::to_string(bool if_am) 
+{
     stringstream ss;
-    if(if_am) 
-	hour -= 12;
-   
-    if (hour < 10) {
+    int temp_hour {hour};
+    if(if_am && hour > 12) 
+    {
+	temp_hour -= 12;
+    }
+    if (temp_hour < 10) 
+    {
 	ss << '0';
     }
-    ss << hour << ":";
-    if (minute < 10) {
+    ss << temp_hour << ":";
+    if (minute < 10)
+    {
 	ss << '0';
     }
     ss << minute  << ":";
-    if (second < 10) {
+    if (second < 10) 
+    {
 	ss << '0';
     }
-    ss  << second;
-    
-    if (if_am){
+    ss  << second;  
+    if (if_am)
+    {
 	if (is_am())
+	{
+	    ss << " am";
+	}
+	else 
+	{
 	    ss << " pm";
+	    hour -= 12;
+	}
     }
-
-    ///returnera ss.str() direkt
-    string return_string = ss.str();
-    return return_string;
+    ///returnera ss.str() direkt FIXED
+    
+    return ss.str();
 }
-
-int Time::get_hour() const {return hour;}
-int Time::get_minute() const {return minute;}
-int Time::get_second() const {return second;}
-
-bool Time::is_am() {
-    if (hour < 12) {
-	if_am = true;
+int Time::get_hour() const 
+{
+    return hour;
+}
+int Time::get_minute() const 
+{
+    return minute;
+}
+int Time::get_second() const 
+{
+    return second;
+}
+bool Time::is_am() const 
+{
+    if (hour < 12) 
+    {
 	return true;
     }
-    else { 
-	if_am = false;
+    else 
+    { 
 	return false;	
     }
 }
-Time::operator string() {return to_string(false);}
+Time::operator string() 
+{
+    return to_string(false);
+}
 
-Time Time::operator-(int rhs) {
-    rhs = -rhs;
+Time Time::operator-(int rhs) 
+{
+    rhs = -rhs; //------
     return operator+(rhs);
 }
-Time Time::operator+(int rhs) {
+
+Time Time::operator+(int rhs) 
+{
     Time t{hour, minute, second};
     t.second += rhs;
     return time_Check(t);
 }
-Time& Time::operator++() {
+Time operator+(int lhs, Time rhs) 
+{
+    return rhs+lhs;
+}
+
+
+Time& Time::operator++() 
+{
     second++;
-    if (second > 59) {
+    if (second > 59) 
+    {
 	second -= 60;
 	minute++;
     }
-    if(minute > 59) {
+    if(minute > 59) 
+    {
 	minute -= 60;
 	hour++;
     }
-    if(hour > 23) {
+    if(hour > 23)
+    {
 	hour -= 24;
-    }	
+    }
+
     return *this;
 }
-Time& Time::operator--() {
+Time& Time::operator--() 
+{
     second--;
-    if(hour < 0) {
+    if (hour < 0)
+    {
 	hour += 24;
     }
-    if(minute < 0) {
+    if (minute < 0) 
+{
 	minute += 60;
 	hour--;
     }
-    if (second < 0) {
+    if (second < 0) 
+{
 	second += 60;
 	minute--;
     }
+
     return *this;
 }
-Time Time::operator++(int) {
+Time Time::operator++(int) 
+{
     Time t{hour,minute,second};
     second++;
     time_Check(*this);
+
     return t;
 }
-Time Time::operator--(int) {
+Time Time::operator--(int) 
+{
     Time t{hour,minute,second};
     second--;
     time_Check(*this);
+
     return t;
 }
 
 
-Time Time::time_Check(Time rhs) {
+Time Time::time_Check(Time rhs)
+{
     while(rhs.hour > 23 || rhs.hour < 0 || rhs.minute > 59
-	  || rhs.minute < 0 || rhs.second > 59 || rhs.second < 0) {
-	if (rhs.second > 59) {
+	  || rhs.minute < 0 || rhs.second > 59 || rhs.second < 0) 
+    {
+	if (rhs.second > 59) 
+	{
 	    rhs.second -= 60;
 	    rhs.minute++;
 	}
-	if(rhs.minute > 59) {
+	if (rhs.minute > 59) 
+	{
 	    rhs.minute -= 60;
 	    rhs.hour++;
 	}
-	if(rhs.hour > 23) {
+	if (rhs.hour > 23)
+	{
 	    rhs.hour -= 24;
 	}
-	if(rhs.hour < 0) {
+	if (rhs.hour < 0) 
+	{
 	    rhs.hour += 24;
 	}
-	if(rhs.minute < 0) {
+	if (rhs.minute < 0) 
+	{
 	    rhs.minute += 60;
 	    rhs.hour--;
 	}
-	if (rhs.second < 0) {
+	if (rhs.second < 0) 
+	{
 	    rhs.second += 60;
 	    rhs.minute--;
-	}
-	
+	}	
     }
     return rhs;
 }
 
-bool Time::operator<(const Time & rhs) const{
+bool Time::operator<(const Time & rhs) const
+{
     if (hour < rhs.hour)
 	return true;
     else if (hour == rhs.hour && minute < rhs.minute) 
@@ -174,36 +239,44 @@ bool Time::operator<(const Time & rhs) const{
     return false;
 }
 
-bool Time::operator>(const Time & rhs) const{
+bool Time::operator>(const Time & rhs) const
+{
     return rhs<*this;
 }
 
-bool Time::operator<=(const Time & rhs) const{
+bool Time::operator<=(const Time & rhs) const
+{
     return !(rhs<*this);
 }
 
-bool Time::operator>=(const Time & rhs) const{
+bool Time::operator>=(const Time & rhs) const
+{
     return !(*this<rhs);
 }
 
-bool Time::operator==(const Time & rhs) const {
+bool Time::operator==(const Time & rhs) const
+{
     return !(rhs<*this || *this<rhs);
 }
 
-bool Time::operator!=(const Time & rhs) const {
+bool Time::operator!=(const Time & rhs) const 
+{
     return rhs<*this || *this<rhs;
 }
 
-std::ostream& operator<<(std::ostream& os, Time t) {
+std::ostream& operator<<(std::ostream& os, Time t) 
+{
     os << t.to_string(false);
     return os;
 }
 
-std::istream& operator>>(std::istream& is,Time t) {
-    
+std::istream& operator>>(std::istream& is,Time t) 
+{
     char c{':'};
     is >> t.hour >> c >> t.minute >> c >> t.second;
-    if (t.hour > 23 || t.hour < 0 || t.minute > 59 || t.minute < 0 || t.second > 59 || t.second < 0) {
+    if (t.hour > 23 || t.hour < 0 || t.minute > 59 ||
+	t.minute < 0 || t.second > 59 || t.second < 0) 
+    {
 	is.setstate(ios::failbit);
     }
     return is;
