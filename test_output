@@ -1,101 +1,105 @@
-COMPILATION ERRORS
- In file included from test_case.cc:4:0:
+ALL WARNINGS AND COMPILATION ERRORS
+when trying to compile against extended test cases with
+\g++ -std=c++17 -Wall -Wextra -Wpedantic -Weffc++  -static-libstdc++ test_main.o test_case.cc Time.cc
+errors for each individual test case further down
+
+In file included from test_case.cc:4:0:
 test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____68()’:
 test_case.cc:75:23: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t.to_string() == "14:12:12");
                        ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
 test_case.cc:75:23: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t.to_string() == "14:12:12");
                        ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
 test_case.cc:76:28: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t.to_string(false) == "14:12:12");
                             ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
 test_case.cc:76:28: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t.to_string(false) == "14:12:12");
                             ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
 test_case.cc:77:27: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t.to_string(true) == "02:12:12 pm");
                            ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
 test_case.cc:77:27: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t.to_string(true) == "02:12:12 pm");
                            ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
 test_case.cc:78:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t1.to_string() == "03:03:03");
                         ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
 test_case.cc:78:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t1.to_string() == "03:03:03");
                         ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
 test_case.cc:79:29: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t1.to_string(false) == "03:03:03");
                              ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
 test_case.cc:79:29: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t1.to_string(false) == "03:03:03");
                              ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
 test_case.cc:80:28: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t1.to_string(true) == "03:03:03 am");
                             ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
 test_case.cc:80:28: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t1.to_string(true) == "03:03:03 am");
                             ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
 test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____83()’:
 test_case.cc:92:38: error: no matching function for call to ‘std::__cxx11::basic_string<char>::basic_string(const Time&)’
@@ -362,206 +366,480 @@ In file included from /sw/gcc-6.1.0/include/c++/6.1.0/string:52:0,
        ^~~~~~~~~~~~
 /sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:380:7: note:   candidate expects 0 arguments, 1 provided
 In file included from test_case.cc:4:0:
-test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____105()’:
-test_case.cc:110:22: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
-     CHECK(t_am.is_am());
-                      ^
-In file included from test_case.cc:5:0:
-Time.h:12:10: note:   in call to ‘bool Time::is_am()’
-     bool is_am();
-          ^~~~~
-In file included from test_case.cc:4:0:
-test_case.cc:110:22: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
-     CHECK(t_am.is_am());
-                      ^
-In file included from test_case.cc:5:0:
-Time.h:12:10: note:   in call to ‘bool Time::is_am()’
-     bool is_am();
-          ^~~~~
-In file included from test_case.cc:4:0:
-test_case.cc:111:28: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
-     CHECK_FALSE(t_pm.is_am());
-                            ^
-In file included from test_case.cc:5:0:
-Time.h:12:10: note:   in call to ‘bool Time::is_am()’
-     bool is_am();
-          ^~~~~
-In file included from test_case.cc:4:0:
-test_case.cc:111:28: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
-     CHECK_FALSE(t_pm.is_am());
-                            ^
-In file included from test_case.cc:5:0:
-Time.h:12:10: note:   in call to ‘bool Time::is_am()’
-     bool is_am();
-          ^~~~~
-test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____387()’:
-test_case.cc:390:15: error: no match for ‘operator+’ (operand types are ‘int’ and ‘Time’)
-     Time t2{1 + t1};
-             ~~^~~~
-test_case.cc:390:19: error: no matching function for call to ‘Time::Time(<brace-enclosed initializer list>)’
-     Time t2{1 + t1};
-                   ^
-In file included from test_case.cc:5:0:
-Time.h:17:5: note: candidate: Time::Time(std::__cxx11::string)
-     Time(string time_str);
-     ^~~~
-Time.h:17:5: note:   conversion of argument 1 would be ill-formed:
-Time.h:16:5: note: candidate: Time::Time()
-     Time();
-     ^~~~
-Time.h:16:5: note:   candidate expects 0 arguments, 1 provided
-Time.h:15:5: note: candidate: Time::Time(int, int, int)
-     Time(int hour, int minute, int second);
-     ^~~~
-Time.h:15:5: note:   candidate expects 3 arguments, 1 provided
-Time.h:9:7: note: candidate: constexpr Time::Time(const Time&)
- class Time
-       ^~~~
-Time.h:9:7: note:   conversion of argument 1 would be ill-formed:
-Time.h:9:7: note: candidate: constexpr Time::Time(Time&&)
-Time.h:9:7: note:   conversion of argument 1 would be ill-formed:
-test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____396()’:
-test_case.cc:399:21: error: no match for ‘operator+’ (operand types are ‘int’ and ‘const Time’)
-     Time const t2{1 + t1};
-                   ~~^~~~
-test_case.cc:399:25: error: no matching function for call to ‘Time::Time(<brace-enclosed initializer list>)’
-     Time const t2{1 + t1};
-                         ^
-In file included from test_case.cc:5:0:
-Time.h:17:5: note: candidate: Time::Time(std::__cxx11::string)
-     Time(string time_str);
-     ^~~~
-Time.h:17:5: note:   conversion of argument 1 would be ill-formed:
-Time.h:16:5: note: candidate: Time::Time()
-     Time();
-     ^~~~
-Time.h:16:5: note:   candidate expects 0 arguments, 1 provided
-Time.h:15:5: note: candidate: Time::Time(int, int, int)
-     Time(int hour, int minute, int second);
-     ^~~~
-Time.h:15:5: note:   candidate expects 3 arguments, 1 provided
-Time.h:9:7: note: candidate: constexpr Time::Time(const Time&)
- class Time
-       ^~~~
-Time.h:9:7: note:   conversion of argument 1 would be ill-formed:
-Time.h:9:7: note: candidate: constexpr Time::Time(Time&&)
-Time.h:9:7: note:   conversion of argument 1 would be ill-formed:
-In file included from test_case.cc:4:0:
-test_case.cc:400:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____418()’:
+test_case.cc:422:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t2.to_string() == "00:00:01");
                         ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
-test_case.cc:400:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+test_case.cc:422:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t2.to_string() == "00:00:01");
                         ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
-test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____412()’:
-test_case.cc:415:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____434()’:
+test_case.cc:437:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      Time const t2{t1 + 1};
                         ^
 In file included from test_case.cc:5:0:
-Time.h:22:10: note:   in call to ‘Time Time::operator+(int)’
+Time.h:23:10: note:   in call to ‘Time Time::operator+(int)’
      Time operator+(int);
           ^~~~~~~~
 In file included from test_case.cc:4:0:
-test_case.cc:416:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+test_case.cc:438:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t2.to_string() == "00:00:01");
                         ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
-test_case.cc:416:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+test_case.cc:438:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t2.to_string() == "00:00:01");
                         ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
-test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____426()’:
-test_case.cc:429:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____448()’:
+test_case.cc:451:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      Time const t2{t1 - 1};
                         ^
 In file included from test_case.cc:5:0:
-Time.h:23:10: note:   in call to ‘Time Time::operator-(int)’
+Time.h:24:10: note:   in call to ‘Time Time::operator-(int)’
      Time operator- (int);
           ^~~~~~~~
 In file included from test_case.cc:4:0:
-test_case.cc:430:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+test_case.cc:452:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t2.to_string() == "00:00:00");
                         ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 In file included from test_case.cc:4:0:
-test_case.cc:430:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+test_case.cc:452:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
      CHECK(t2.to_string() == "00:00:00");
                         ^
 In file included from test_case.cc:5:0:
-Time.h:14:17: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
-     std::string to_string(bool if_am = false);
-                 ^~~~~~~~~
- 
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 
-TEST_CASE("Explicit string constructor: 6-10") failed 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-a.out is a Catch v1.6.0 host application.
-Run with -? for options
 
--------------------------------------------------------------------------------
-Explicit string constructor: 6-10
--------------------------------------------------------------------------------
-test_case.cc:7
-...............................................................................
 
-test_case.cc:10: FAILED:
-  CHECK_FALSE( (std::is_convertible<std::string, Time>::value) )
-with expansion:
-  !true
-with message:
-  6-10: implicit type conversion should not be possible
 
-===============================================================================
-test cases: 1 | 1 failed
-assertions: 1 | 1 failed
+encountered compilation errors when trying to compile
+TEST_CASE("const to_string() ")
+{
+    Time const t{14,12,12};
+    Time const t1{03,03,03};
 
- 
 
-TEST_CASE("to_string()") failed 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-a.out is a Catch v1.6.0 host application.
-Run with -? for options
+    INFO("Time const t{14,12,12};\nTime const t1{03,03,03};")
+    CHECK(t.to_string() == "14:12:12");
+    CHECK(t.to_string(false) == "14:12:12");
+    CHECK(t.to_string(true) == "02:12:12 pm");
+    CHECK(t1.to_string() == "03:03:03");
+    CHECK(t1.to_string(false) == "03:03:03");
+    CHECK(t1.to_string(true) == "03:03:03 am");
+}
 
--------------------------------------------------------------------------------
-to_string()
--------------------------------------------------------------------------------
-test_case.cc:7
-...............................................................................
 
-test_case.cc:18: FAILED:
-  CHECK( t1.to_string(true) == "03:03:03 am" )
-with expansion:
-  "0-9:03:03 pm" == "03:03:03 am"
-with message:
-  Time t{14,12,12};
-  Time t1{03,03,03};
+errors: (see start of file for warnings)
+In file included from test_case.cc:4:0:
+test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____7()’:
+test_case.cc:14:23: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t.to_string() == "14:12:12");
+                       ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:14:23: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t.to_string() == "14:12:12");
+                       ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:15:28: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t.to_string(false) == "14:12:12");
+                            ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:15:28: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t.to_string(false) == "14:12:12");
+                            ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:16:27: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t.to_string(true) == "02:12:12 pm");
+                           ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:16:27: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t.to_string(true) == "02:12:12 pm");
+                           ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:17:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t1.to_string() == "03:03:03");
+                        ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:17:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t1.to_string() == "03:03:03");
+                        ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:18:29: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t1.to_string(false) == "03:03:03");
+                             ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:18:29: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t1.to_string(false) == "03:03:03");
+                             ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:19:28: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t1.to_string(true) == "03:03:03 am");
+                            ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:19:28: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t1.to_string(true) == "03:03:03 am");
+                            ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
 
-===============================================================================
-test cases: 1 | 1 failed
-assertions: 6 | 5 passed | 1 failed
 
- 
 
-TEST_CASE("Input") failed 
+
+encountered compilation errors when trying to compile
+TEST_CASE("string operator")
+{
+    Time t{"14:12:12"};
+    Time t1{"03:03:03"};
+    Time const t2{"14:12:12"};
+    Time const t3{"03:03:03"};
+
+    CHECK(static_cast<std::string>(t) == "14:12:12");
+    CHECK(std::string(t1) == "03:03:03");
+    CHECK(static_cast<std::string>(t2) == "14:12:12");
+    CHECK(std::string(t3) == "03:03:03");
+}
+
+
+errors: (see start of file for warnings)
+In file included from test_case.cc:4:0:
+test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____7()’:
+test_case.cc:16:38: error: no matching function for call to ‘std::__cxx11::basic_string<char>::basic_string(const Time&)’
+     CHECK(static_cast<std::string>(t2) == "14:12:12");
+                                      ^
+In file included from /sw/gcc-6.1.0/include/c++/6.1.0/string:52:0,
+                 from /sw/gcc-6.1.0/include/c++/6.1.0/stdexcept:39,
+                 from test_case.cc:1:
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:549:9: note: candidate: template<class _InputIterator, class> std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(_InputIterator, _InputIterator, const _Alloc&)
+         basic_string(_InputIterator __beg, _InputIterator __end,
+         ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:549:9: note:   template argument deduction/substitution failed:
+In file included from test_case.cc:4:0:
+test_case.cc:16:38: note:   candidate expects 3 arguments, 1 provided
+     CHECK(static_cast<std::string>(t2) == "14:12:12");
+                                      ^
+In file included from /sw/gcc-6.1.0/include/c++/6.1.0/string:52:0,
+                 from /sw/gcc-6.1.0/include/c++/6.1.0/stdexcept:39,
+                 from test_case.cc:1:
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:511:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(basic_string&& __str, const _Alloc& __a)
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:511:7: note:   candidate expects 2 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:507:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const basic_string& __str, const _Alloc& __a)
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:507:7: note:   candidate expects 2 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:503:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::initializer_list<_Tp>, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(initializer_list<_CharT> __l, const _Alloc& __a = _Alloc())
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:503:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘std::initializer_list<char>’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:476:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(basic_string&& __str) noexcept
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:476:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘std::__cxx11::basic_string<char>&&’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:464:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(size_type __n, _CharT __c, const _Alloc& __a = _Alloc())
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:464:7: note:   candidate expects 3 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:454:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const _CharT* __s, const _Alloc& __a = _Alloc())
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:454:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘const char*’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:444:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const _CharT* __s, size_type __n,
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:444:7: note:   candidate expects 3 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:426:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const basic_string& __str, size_type __pos,
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:426:7: note:   candidate expects 4 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:410:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const basic_string& __str, size_type __pos,
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:410:7: note:   candidate expects 3 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:397:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const basic_string& __str)
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:397:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘const std::__cxx11::basic_string<char>&’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:389:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const _Alloc& __a) _GLIBCXX_NOEXCEPT
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:389:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘const std::allocator<char>&’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:380:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string() [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string()
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:380:7: note:   candidate expects 0 arguments, 1 provided
+In file included from test_case.cc:4:0:
+test_case.cc:16:38: error: no matching function for call to ‘std::__cxx11::basic_string<char>::basic_string(const Time&)’
+     CHECK(static_cast<std::string>(t2) == "14:12:12");
+                                      ^
+In file included from /sw/gcc-6.1.0/include/c++/6.1.0/string:52:0,
+                 from /sw/gcc-6.1.0/include/c++/6.1.0/stdexcept:39,
+                 from test_case.cc:1:
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:549:9: note: candidate: template<class _InputIterator, class> std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(_InputIterator, _InputIterator, const _Alloc&)
+         basic_string(_InputIterator __beg, _InputIterator __end,
+         ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:549:9: note:   template argument deduction/substitution failed:
+In file included from test_case.cc:4:0:
+test_case.cc:16:38: note:   candidate expects 3 arguments, 1 provided
+     CHECK(static_cast<std::string>(t2) == "14:12:12");
+                                      ^
+In file included from /sw/gcc-6.1.0/include/c++/6.1.0/string:52:0,
+                 from /sw/gcc-6.1.0/include/c++/6.1.0/stdexcept:39,
+                 from test_case.cc:1:
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:511:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(basic_string&& __str, const _Alloc& __a)
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:511:7: note:   candidate expects 2 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:507:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const basic_string& __str, const _Alloc& __a)
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:507:7: note:   candidate expects 2 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:503:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::initializer_list<_Tp>, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(initializer_list<_CharT> __l, const _Alloc& __a = _Alloc())
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:503:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘std::initializer_list<char>’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:476:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(basic_string&& __str) noexcept
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:476:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘std::__cxx11::basic_string<char>&&’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:464:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(size_type __n, _CharT __c, const _Alloc& __a = _Alloc())
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:464:7: note:   candidate expects 3 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:454:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const _CharT* __s, const _Alloc& __a = _Alloc())
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:454:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘const char*’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:444:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const _CharT* __s, size_type __n,
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:444:7: note:   candidate expects 3 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:426:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const basic_string& __str, size_type __pos,
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:426:7: note:   candidate expects 4 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:410:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const basic_string& __str, size_type __pos,
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:410:7: note:   candidate expects 3 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:397:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const basic_string& __str)
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:397:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘const std::__cxx11::basic_string<char>&’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:389:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const _Alloc& __a) _GLIBCXX_NOEXCEPT
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:389:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘const std::allocator<char>&’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:380:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string() [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string()
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:380:7: note:   candidate expects 0 arguments, 1 provided
+In file included from test_case.cc:4:0:
+test_case.cc:17:25: error: no matching function for call to ‘std::__cxx11::basic_string<char>::basic_string(const Time&)’
+     CHECK(std::string(t3) == "03:03:03");
+                         ^
+In file included from /sw/gcc-6.1.0/include/c++/6.1.0/string:52:0,
+                 from /sw/gcc-6.1.0/include/c++/6.1.0/stdexcept:39,
+                 from test_case.cc:1:
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:549:9: note: candidate: template<class _InputIterator, class> std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(_InputIterator, _InputIterator, const _Alloc&)
+         basic_string(_InputIterator __beg, _InputIterator __end,
+         ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:549:9: note:   template argument deduction/substitution failed:
+In file included from test_case.cc:4:0:
+test_case.cc:17:25: note:   candidate expects 3 arguments, 1 provided
+     CHECK(std::string(t3) == "03:03:03");
+                         ^
+In file included from /sw/gcc-6.1.0/include/c++/6.1.0/string:52:0,
+                 from /sw/gcc-6.1.0/include/c++/6.1.0/stdexcept:39,
+                 from test_case.cc:1:
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:511:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(basic_string&& __str, const _Alloc& __a)
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:511:7: note:   candidate expects 2 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:507:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const basic_string& __str, const _Alloc& __a)
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:507:7: note:   candidate expects 2 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:503:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::initializer_list<_Tp>, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(initializer_list<_CharT> __l, const _Alloc& __a = _Alloc())
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:503:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘std::initializer_list<char>’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:476:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(basic_string&& __str) noexcept
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:476:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘std::__cxx11::basic_string<char>&&’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:464:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(size_type __n, _CharT __c, const _Alloc& __a = _Alloc())
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:464:7: note:   candidate expects 3 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:454:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const _CharT* __s, const _Alloc& __a = _Alloc())
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:454:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘const char*’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:444:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const _CharT* __s, size_type __n,
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:444:7: note:   candidate expects 3 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:426:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const basic_string& __str, size_type __pos,
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:426:7: note:   candidate expects 4 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:410:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const basic_string& __str, size_type __pos,
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:410:7: note:   candidate expects 3 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:397:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const basic_string& __str)
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:397:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘const std::__cxx11::basic_string<char>&’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:389:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const _Alloc& __a) _GLIBCXX_NOEXCEPT
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:389:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘const std::allocator<char>&’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:380:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string() [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string()
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:380:7: note:   candidate expects 0 arguments, 1 provided
+In file included from test_case.cc:4:0:
+test_case.cc:17:25: error: no matching function for call to ‘std::__cxx11::basic_string<char>::basic_string(const Time&)’
+     CHECK(std::string(t3) == "03:03:03");
+                         ^
+In file included from /sw/gcc-6.1.0/include/c++/6.1.0/string:52:0,
+                 from /sw/gcc-6.1.0/include/c++/6.1.0/stdexcept:39,
+                 from test_case.cc:1:
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:549:9: note: candidate: template<class _InputIterator, class> std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(_InputIterator, _InputIterator, const _Alloc&)
+         basic_string(_InputIterator __beg, _InputIterator __end,
+         ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:549:9: note:   template argument deduction/substitution failed:
+In file included from test_case.cc:4:0:
+test_case.cc:17:25: note:   candidate expects 3 arguments, 1 provided
+     CHECK(std::string(t3) == "03:03:03");
+                         ^
+In file included from /sw/gcc-6.1.0/include/c++/6.1.0/string:52:0,
+                 from /sw/gcc-6.1.0/include/c++/6.1.0/stdexcept:39,
+                 from test_case.cc:1:
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:511:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(basic_string&& __str, const _Alloc& __a)
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:511:7: note:   candidate expects 2 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:507:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const basic_string& __str, const _Alloc& __a)
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:507:7: note:   candidate expects 2 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:503:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::initializer_list<_Tp>, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(initializer_list<_CharT> __l, const _Alloc& __a = _Alloc())
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:503:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘std::initializer_list<char>’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:476:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(basic_string&& __str) noexcept
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:476:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘std::__cxx11::basic_string<char>&&’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:464:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, _CharT, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(size_type __n, _CharT __c, const _Alloc& __a = _Alloc())
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:464:7: note:   candidate expects 3 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:454:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const _CharT* __s, const _Alloc& __a = _Alloc())
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:454:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘const char*’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:444:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const _CharT* __s, size_type __n,
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:444:7: note:   candidate expects 3 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:426:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const basic_string& __str, size_type __pos,
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:426:7: note:   candidate expects 4 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:410:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long unsigned int]
+       basic_string(const basic_string& __str, size_type __pos,
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:410:7: note:   candidate expects 3 arguments, 1 provided
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:397:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const basic_string& __str)
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:397:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘const std::__cxx11::basic_string<char>&’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:389:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _Alloc&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string(const _Alloc& __a) _GLIBCXX_NOEXCEPT
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:389:7: note:   no known conversion for argument 1 from ‘const Time’ to ‘const std::allocator<char>&’
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:380:7: note: candidate: std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string() [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]
+       basic_string()
+       ^~~~~~~~~~~~
+/sw/gcc-6.1.0/include/c++/6.1.0/bits/basic_string.h:380:7: note:   candidate expects 0 arguments, 1 provided
+
+
+
+
+TEST_CASE("Input") failed
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 a.out is a Catch v1.6.0 host application.
 Run with -? for options
@@ -589,32 +867,167 @@ with expansion:
 test cases: 1 | 1 failed
 assertions: 3 | 1 passed | 2 failed
 
- 
 
-TEST_CASE("incremental/ decremental") failed 
+
+TEST_CASE("incremental/decremental overflow handling") failed
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 a.out is a Catch v1.6.0 host application.
 Run with -? for options
 
 -------------------------------------------------------------------------------
-incremental/ decremental
+incremental/decremental overflow handling
+  one minute
 -------------------------------------------------------------------------------
 test_case.cc:7
 ...............................................................................
 
-test_case.cc:7: FAILED:
-  {Unknown expression after the reported line}
+test_case.cc:18: FAILED:
+  REQUIRE_NOTHROW( t1-- )
 due to unexpected exception with message:
+  for loop with 60 t++;t1--
+  Invalid Input
+
+-------------------------------------------------------------------------------
+incremental/decremental overflow handling
+  one hour
+-------------------------------------------------------------------------------
+test_case.cc:7
+...............................................................................
+
+test_case.cc:31: FAILED:
+  REQUIRE_NOTHROW( t1-- )
+due to unexpected exception with message:
+  for loop with 3600 t++;t1--
+  Invalid Input
+
+-------------------------------------------------------------------------------
+incremental/decremental overflow handling
+  one day
+-------------------------------------------------------------------------------
+test_case.cc:7
+...............................................................................
+
+test_case.cc:43: FAILED:
+  REQUIRE_NOTHROW( t1-- )
+due to unexpected exception with message:
+  for loop with 86400 t++;t1--
   Invalid Input
 
 ===============================================================================
-test cases: 1 | 1 failed
-assertions: 5 | 4 passed | 1 failed
+test cases:   1 |   0 passed | 1 failed
+assertions: 108 | 105 passed | 3 failed
 
- 
 
-test cases failed with compilation errors: 7
-test cases compiled with only warnings, no errors: 0
-failed testcases: 4
-passed testcases: 13
-total testcases: 24
+
+encountered compilation errors when trying to compile
+TEST_CASE("int + const Time")
+{
+    Time const t1{0, 0, 0};
+    Time const t2{1 + t1};
+    CHECK(t2.to_string() == "00:00:01");
+}
+
+
+errors: (see start of file for warnings)
+In file included from test_case.cc:4:0:
+test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____7()’:
+test_case.cc:11:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t2.to_string() == "00:00:01");
+                        ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:11:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t2.to_string() == "00:00:01");
+                        ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+
+
+
+
+encountered compilation errors when trying to compile
+TEST_CASE("const Time + int")
+{
+    Time const t1{0, 0, 0};
+    Time const t2{t1 + 1};
+    CHECK(t2.to_string() == "00:00:01");
+}
+
+
+errors: (see start of file for warnings)
+test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____7()’:
+test_case.cc:10:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     Time const t2{t1 + 1};
+                        ^
+In file included from test_case.cc:5:0:
+Time.h:23:10: note:   in call to ‘Time Time::operator+(int)’
+     Time operator+(int);
+          ^~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:11:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t2.to_string() == "00:00:01");
+                        ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:11:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t2.to_string() == "00:00:01");
+                        ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+
+
+
+
+encountered compilation errors when trying to compile
+TEST_CASE("const Time - int")
+{
+    Time const t1{0, 0, 1};
+    Time const t2{t1 - 1};
+    CHECK(t2.to_string() == "00:00:00");
+}
+
+
+errors: (see start of file for warnings)
+test_case.cc: In function ‘void ____C_A_T_C_H____T_E_S_T____7()’:
+test_case.cc:10:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     Time const t2{t1 - 1};
+                        ^
+In file included from test_case.cc:5:0:
+Time.h:24:10: note:   in call to ‘Time Time::operator-(int)’
+     Time operator- (int);
+          ^~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:11:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t2.to_string() == "00:00:00");
+                        ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+In file included from test_case.cc:4:0:
+test_case.cc:11:24: error: passing ‘const Time’ as ‘this’ argument discards qualifiers [-fpermissive]
+     CHECK(t2.to_string() == "00:00:00");
+                        ^
+In file included from test_case.cc:5:0:
+Time.h:13:12: note:   in call to ‘std::__cxx11::string Time::to_string(bool)’
+     string to_string(bool if_am = false);
+            ^~~~~~~~~
+
+
+
+
+test cases failed with compilation errors: 5
+failed testcases: 2
+passed testcases: 18
+total testcases: 25
