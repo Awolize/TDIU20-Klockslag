@@ -7,10 +7,14 @@ using std::string;
 
 class Time
 {
+
+    friend std::ostream & operator <<(std::ostream &, Time const &);
+    friend std::istream & operator >>(std::istream &, Time &); 
+		 
 public:
     bool is_am() const;
     ///la till defaultvärde för att testprogrammet inte skulle misslyckas på allting
-    string to_string(bool if_am = false);
+    string to_string(bool if_am = false) const;
     Time(int hour, int minute, int second);
     Time();
     Time(int);
@@ -19,9 +23,9 @@ public:
     int get_hour() const;
     int get_minute() const;
     int get_second() const;
-    explicit operator string();  ///6-10 FIXED
-    Time operator+(int);
-    Time operator- (int);
+    explicit operator string() const;  ///6-10 FIXED
+    Time operator+(const int) const;
+    Time operator- (int) const;
     Time& operator++();
     Time& operator--();
     Time operator++(int);
@@ -32,17 +36,14 @@ public:
     bool operator>=(const Time &) const;
     bool operator==(const Time &) const;
     bool operator!=(const Time &) const;
-    friend std::ostream& operator<<(std::ostream&, Time);
-    friend std::istream& operator>>(std::istream&, Time);   
 private: 
     void Check_Value(int hour, int minute, int second);
-    Time time_Check(Time);
+    Time time_Check(Time) const;
     int hour;
     int minute;
     int second;
 };
 
-Time operator+(int, Time); 
-std::ostream& operator<<(std::ostream& os, Time t);
-std::istream& operator>>(std::istream& is, Time t);		      
+Time operator+(const int, const Time &); 
+
 #endif
