@@ -188,3 +188,29 @@ TEST_CASE ("test3")
     Time t_am{3,3,3};
     CHECK(t_am.is_am());
 }
+
+
+TEST_CASE("Input fail result")
+{
+
+    std::stringstream ss{"-2:02:02"};
+    Time t;
+
+    CHECK_NOTHROW(ss >> t);
+
+    CHECK(ss.fail());
+
+
+    INFO("If we try to read an invalid time from the stream "
+            "and the failbit is set, the time object we're reading "
+            "to should not be left in an invalid state");
+    CHECK_FALSE(t.to_string() == "-2:02:2");
+
+    ss.clear();
+
+    ss.str("25:02:02");
+    CHECK_NOTHROW(ss >> t);
+
+    CHECK(ss.fail());
+    CHECK_FALSE(t.to_string() == "25:02:02");
+}
