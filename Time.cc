@@ -5,7 +5,7 @@
 #include <stdexcept>
 using namespace std;
 
-void Time::Check_Value(int hour, int minute, int second)
+void Time::Check_Value(int hour, int minute, int second) const
 {
     if (hour > 23 || hour < 0 || minute > 59 ||
 	minute < 0 || second > 59 || second < 0) 
@@ -52,7 +52,7 @@ Time::Time()
 string Time::to_string(bool if_am) const
 {
     stringstream ss;
-    int temp_hour {hour};
+    int temp_hour {hour},temp_second{second},temp_minute{minute},check_hour{hour};
     if(if_am && hour > 12) 
     {
 	temp_hour -= 12;
@@ -83,7 +83,7 @@ string Time::to_string(bool if_am) const
 	    ss << " pm";
 	}
     }
-    
+    Check_Value(check_hour,temp_second,temp_minute);
     return ss.str();
 }
 int Time::get_hour() const 
@@ -297,13 +297,19 @@ std::ostream& operator <<(std::ostream& os, Time const &t)
 
 std::istream& operator >>(std::istream& is, Time & t)
 {
-    char c{':'};
+    char c;
     is >> t.hour >> c >> t.minute >> c >> t.second;
-    if (t.hour > 23 || t.hour < 0 || t.minute > 59 ||
-	t.minute < 0 || t.second > 59 || t.second < 0) 
+    try
     {
+	Time(t.hour, t.minute, t.second);
+    }
+    catch (std::logic_error)
+    {
+	t.hour = 0;
+	t.minute = 0;
+	t.second = 0;
+	is >> t.hour >> c >> t.minute >> c >> t.second;
 	is.setstate(ios::failbit);
     }
-
     return is;
 }

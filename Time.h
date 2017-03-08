@@ -37,7 +37,7 @@ public:
     bool operator==(const Time &) const;
     bool operator!=(const Time &) const;
 private: 
-    void Check_Value(int hour, int minute, int second);
+    void Check_Value(int hour, int minute, int second) const;
     Time time_Check(Time) const;
     int hour;
     int minute;
